@@ -22,6 +22,12 @@ class RecipeParser_Parser_Bbcgoodfoodcom {
         if (!$nodes || !$nodes->length) {
             $nodes = $xpath->query('//*[@id="recipe-ingredients"]//div[@class="ingredient-lists separator-serated tab-content"]/*');
         }
+        
+        
+        // mine
+        if (!$nodes || !$nodes->length) {
+        	$nodes = $xpath->query('//*[@id="recipe-ingredients"]//div[@class="ingredients-list__content"]/*');
+        }
         foreach ($nodes as $node) {
             if ($node->nodeName == 'h3') {
                 $line = $node->nodeValue;
